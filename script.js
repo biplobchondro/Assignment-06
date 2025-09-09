@@ -132,6 +132,7 @@ const handleCards = (e) => {
         })
         // console.log(addCards)
         showCarts(addCards)
+         alert(`✅ ${title} has added to the cart...`)
 }
 
 const showCarts = (addCards) =>{

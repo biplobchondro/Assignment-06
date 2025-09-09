@@ -42,7 +42,7 @@ categories.forEach(cat => {
 
 const loadGreenByCategory = (categoryId) =>{
     // console.log(categoryId)
-    fetch(`https://openapi.programming-hero.com/api/category/${categoryId}`)
+    fetch(`https://openapi.programming-hero.com/api/plants`)
     .then(res => res.json())
     .then(data => {
         // console.log(data.plants)
@@ -54,16 +54,18 @@ const loadGreenByCategory = (categoryId) =>{
         newsContainer.innerHTML = "";
         plants.forEach(plant => {
             newsContainer.innerHTML += `
-            <div class="card bg-base-100 w-full shadow-sm">
+            <div class="card bg-base-100 w-full shadow-sm ">
     <figure class=" h-60">
     <img src="${plant.image}" class="rounded-xl" />
     </figure>
     <div class="card-body">
     <h2 id="${plant.id}" onclick="loadWordDetail(${plant.id})" class="card-title hover:bg-green-200 cursor-pointer">${plant.name}</h2>
     <p class="text-sm">${plant.description}</p>
-    <div class="flex  font-bold">
-        <p class=" bg-[#DCFCE7] text-[#15803D] rounded-3xl p-2">${plant.category}</p>
+    <div class="flex justify-between font-bold">
+        <div><p class=" bg-[#DCFCE7] text-[#15803D] rounded-3xl p-2">${plant.category}</p></div>
+        <div>
         <p id="${plant.id}"><span><i class="fa-solid fa-bangladeshi-taka-sign"></i> ${plant.price}</span></p>
+        </div>
     </div>
     <div class="card-actions">
     <button class="btn text-white w-full rounded-3xl bg-[#15803D]">Add to Cart</button>
@@ -162,7 +164,7 @@ const deleteCartBox = (cartBoxId) => {
 
 
 loadCategory()
-loadGreenByCategory('1')
+loadGreenByCategory()
 
 
 

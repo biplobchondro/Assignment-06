@@ -1,7 +1,9 @@
 
 
+
+
 const categoryContainer = document.getElementById('categoryContainer')
-const greenContainer = document.getElementById('newsContainer')
+const newsContainer = document.getElementById('newsContainer')
 const detailsBox = document.getElementById('details-container')
 const addCard = document.getElementById('addToCard')
 
@@ -85,7 +87,7 @@ const showLoading = () => {
 }
 
 const loadWordDetail =(id) => {
-    const url = `https://openapi.programming-hero.com/api/plants`
+    const url = `https://openapi.programming-hero.com/api/plant/${id}`
     // console.log(url);
     fetch(url)
     .then(res => res.json())
@@ -167,7 +169,7 @@ const deleteCartBox = (cartBoxId) => {
 
 
 loadCategory()
-loadGreenByCategory()
+loadGreenByCategory('1')
 
 
 

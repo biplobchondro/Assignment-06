@@ -1,4 +1,5 @@
 
+
 const categoryContainer = document.getElementById('categoryContainer')
 const greenContainer = document.getElementById('newsContainer')
 const detailsBox = document.getElementById('details-container')
@@ -42,7 +43,7 @@ categories.forEach(cat => {
 
 const loadGreenByCategory = (categoryId) =>{
     // console.log(categoryId)
-    fetch(`https://openapi.programming-hero.com/api/plants`)
+    fetch(`https://openapi.programming-hero.com/api/category/${categoryId}`)
     .then(res => res.json())
     .then(data => {
         // console.log(data.plants)
@@ -54,7 +55,7 @@ const loadGreenByCategory = (categoryId) =>{
         newsContainer.innerHTML = "";
         plants.forEach(plant => {
             newsContainer.innerHTML += `
-            <div class="card bg-base-100 w-full shadow-sm ">
+            <div class="card bg-base-100 w-full shadow-sm">
     <figure class=" h-60">
     <img src="${plant.image}" class="rounded-xl" />
     </figure>
@@ -84,7 +85,7 @@ const showLoading = () => {
 }
 
 const loadWordDetail =(id) => {
-    const url = `https://openapi.programming-hero.com/api/plant/${id}`
+    const url = `https://openapi.programming-hero.com/api/plants`
     // console.log(url);
     fetch(url)
     .then(res => res.json())
@@ -132,7 +133,8 @@ const handleCards = (e) => {
         })
         // console.log(addCards)
         showCarts(addCards)
-         alert(`✅ ${title} has added to the cart...`)
+        showCarts(addCards)
+        alert(`✅ ${title} has added to the cart...`)
 }
 
 const showCarts = (addCards) =>{
@@ -166,6 +168,8 @@ const deleteCartBox = (cartBoxId) => {
 
 loadCategory()
 loadGreenByCategory()
+
+
 
 
 
